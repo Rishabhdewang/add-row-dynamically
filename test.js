@@ -20,12 +20,12 @@ function addHtmlTableRow(){
     var cell6 = row.insertCell(5);
     var cell7 = row.insertCell(6);
 
-    cell1.innerHTML = `<input type="text" id="sno" name="sno">`;
+    cell1.innerHTML = table.rows.length
     cell2.innerHTML = `<input type="text" id="com" name="company">`;
     cell3.innerHTML = `<input type="text" id="phno" name="phoneno">`;
     cell4.innerHTML = `<input type="text" id="coun" name="country">`;
     cell5.innerHTML = `<input type="text" id="add" name="address">`;
-    cell6.innerHTML = '<input type="button" value="SAVE" onclick="savedata(); Delete(this) ">';
+    cell6.innerHTML = '<input type="button" value="SAVE" onclick="savedata(this); Delete(this) ">';
     cell7.innerHTML = '<input type="button" value="DELETE" onclick="Delete(this);">';
 
     table.appendChild(row);
@@ -33,9 +33,11 @@ function addHtmlTableRow(){
     }
 }
 
- function savedata(){
+ function savedata(row){
 
-        var s1 = document.getElementById(`sno`).value;
+    var i=row.parentNode.parentNode.children;
+
+        // var s1 = document.getElementById(`sno`).value;
         var s2 = document.getElementById(`com`).value;
         var s3 = document.getElementById(`phno`).value;
         var s4 = document.getElementById(`coun`).value;
@@ -55,7 +57,7 @@ function addHtmlTableRow(){
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
         
-            cell1.innerHTML = s1;
+            cell1.innerHTML = rowCount;
             cell2.innerHTML = s2;
             cell3.innerHTML = s3;
             cell4.innerHTML = s4;
@@ -64,11 +66,21 @@ function addHtmlTableRow(){
             cell7.innerHTML = '<input type="button" value="DELETE" onclick="Delete(this);">';
 
             table.appendChild(row);
+            cleardata(i);
 
             x = 0;
     
         // }
 
+}
+
+function cleardata(row){
+    // console.log(row.cells[0].innerHTML)
+    row[0].innerHTML = "";
+    row[1].innerHTML = "";
+    row[2].innerHTML = "";
+    row[3].innerHTML = "";
+    row[4].innerHTML = "";
 }
 
 function Delete(row)
