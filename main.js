@@ -273,7 +273,7 @@ function addHtmlTableRow(){
    <option value="Zimbabwe">Zimbabwe</option>
     </select> <p id="counerr" style = "color: red"></p>`;
     cell5.innerHTML = `<input type="text" id="add" name="address"> <p id="adderr" style = "color: red"></p>`;
-    cell6.innerHTML = '<input type="button" value="SAVE" onclick="savedata(this); ">';
+    cell6.innerHTML = '<input type="button" id="save" value="SAVE" onclick="savedata(this); ">';
     // cell6.innerHTML = '<input type="button" value="SAVE" onclick="savedata(this); Delete(this); ">';
     cell7.innerHTML = '<input type="button" value="DELETE" onclick="Delete(this);">';
 
@@ -320,8 +320,6 @@ function checkEmptyInput(s2,s3,s4,s5)
 
     // Defining error variables with a default value
     var nameErr = phnoErr = countryErr = addErr = true;
-
-    console.log(nameErr,phnoErr,countryErr,countryErr)
         
     // Validate name
     if(s2 == "") {
@@ -802,14 +800,11 @@ function updatedata(row){
         //     Country : p4,
         //     Address : p5
         // });
-        
-        // console.log( "after",tdata);
-
-        
+                // console.log( "after",tdata);
         localStorage.setItem("data",JSON.stringify(tdata));
 
             loadData();
-}
+    }
 }
 
 

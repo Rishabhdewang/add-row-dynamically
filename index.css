@@ -37,3 +37,17 @@ table{
 tr:nth-child(odd) {
     background-color: #c0bfbf;
   }
+
+  input{
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    border: 1px solid #333;
+    margin: 0;
+
+    font-family: inherit;
+    font-size: 90%;
+
+    box-sizing: border-box;
+  }
